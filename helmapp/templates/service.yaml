@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: amitappsvc
+spec:
+  selector:
+    app: amitappsvc
+  type: LoadBalancer
+  ports:
+  - name: amitappsvc
+    port: 2101
+    targetPort: 2101
