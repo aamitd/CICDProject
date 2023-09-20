@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Pod
 spec:
   containers:
-  - name: flaskapp-docker-helm-build
+  - name: amitapp-docker-helm-build
     image: docker:dind
     securityContext:
       privileged: true
