@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: amitapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: amitapp
+  template:
+    metadata:
+      labels:
+        app: amitapp
+    spec:
+      containers:
+      - name: amitapp
+        image: aamitd/amitrepo:latest
+        ports:
+        - containerPort: 2101
+
