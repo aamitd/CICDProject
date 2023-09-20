@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amit Dahan Links</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f3e8fd; /* Light purple background color */
+        }
+        .profile-img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+        <img src="https://www.jenkins.io/images/logos/jenkinstein/256.png" alt="Me">
+    <h1>{{ name }}</h1>
+    <ul>
+        <li>YouTube: <a href="{{ youtube_url }}" target="_blank">{{ youtube_url }}</a></li>
+        <li>LinkedIn: <a href="{{ linkedin_url }}" target="_blank">{{ linkedin_url }}</a></li>
+        <li>Ynet: <a href="{{ ynet_url }}" target="_blank">{{ ynet_url }}</a></li>
+    </ul>
+</body>
+</html>
