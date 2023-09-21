@@ -4,7 +4,7 @@ metadata:
   name: amitappsvc
 spec:
   selector:
-    app: amitappsvc
+    app: amitapp
   type: LoadBalancer
   ports:
   - name: amitappsvc
