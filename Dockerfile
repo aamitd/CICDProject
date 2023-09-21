@@ -5,7 +5,7 @@ FROM python:3.8
 WORKDIR /app
 
 # Copy the local main.py file to the container at /app
-COPY main.py /app
+COPY . /app
 
 # Install Flask and pymongo (and any other dependencies) using pip
 RUN pip install flask pymongo
