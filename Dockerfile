@@ -8,7 +8,7 @@ WORKDIR /app
 COPY main.py /app
 
 # Install Flask and pymongo (and any other dependencies) using pip
-RUN pip install Flask pymongo
+RUN pip install flask pymongo
 
 # Define the command to run when the container starts
 CMD ["python", "main.py"]
