@@ -43,7 +43,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running Pytest...'
-                    sh 'pytest testapp.py'
+                    sh 'docker run aamitd/amitrepo:latest pytest testapp.py'
                 }
             }
         }
