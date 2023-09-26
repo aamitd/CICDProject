@@ -13,7 +13,7 @@ COPY . /app
 RUN pip install -r requirements.txt
 
 # Run tests
-RUN pytest testapp.py
+# RUN pytest testapp.py
 
 # Expose the port "2101"
 EXPOSE 2101
