@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . /app
 
 # Install Flask and pymongo (and any other dependencies) using pip
-RUN pip install flask pymongo pytest
+RUN pip install flask pymongo pytest pytest-flask
 
 # Run testapp
 # RUN pytest testapp.py
@@ -17,4 +17,4 @@ RUN pip install flask pymongo pytest
 EXPOSE 2101
 
 # Define the command to run when the container starts
-CMD ["python", "main.py", "pytest"]
+CMD ["python", "main.py"]
