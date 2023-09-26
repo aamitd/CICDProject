@@ -1,26 +1,63 @@
-from flask import Flask, render_template
-from pymongo import MongoClient
-
-app = Flask(__name__)
-
-# Connect to MongoDB
-client = MongoClient('mongodb://root:3yGWpZ7jeS@34.78.116.136:27017/')
-db = client['amitdata']
-
-
-@app.route('/')
-def index():
-    websites_data = db.websites.find_one({'name': 'Amit Dahan'})
-    name = websites_data['name']
-    facebook_url = websites_data['facebook_url']
-    linkedin_url = websites_data['linkedin_url']
-    instagram_url = websites_data['instagram_url']
-    github_url = websites_data['github_url']
-    return render_template('index.html', name=name, youtube_url=facebook_url, linkedin_url=linkedin_url,
-                           instagram_url=instagram_url, github_url=github_url)
-
-
-if __name__ == '__main__':
-    app.run(debug=True, host="0.0.0.0", port=2101)
-
-
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Amit Dahan Links</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Add Font Awesome CSS -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #f3e8fd; /* Light purple background color */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff; /* White background color */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .profile-img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin: 20px auto;
+            display: block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #6c63ff; /* Light purple hover color */
+        }
+        .icon {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+                <img class="profile-img" src="https://www.jenkins.io/images/logos/jenkinstein/256.png" alt="Me"> <!-- Replace "my_photo.jpg" with the actual file name of your photo -->
+        <h1>{{ name }}</h1>
+        <ul>
+            <li><i class="fab fa-facebook-square icon"></i>Facebook: <a href="{{ facebook_url }}" target="_blank">{{ facebook_url }}</a></li>
+            <li><i class="fab fa-linkedin icon"></i>LinkedIn: <a href="{{ linkedin_url }}" target="_blank">{{ linkedin_url }}</a></li>
+            <li><i class="fab fa-instagram icon"></i>Instagram: <a href="{{ instagram_url }}" target="_blank">{{ instagram_url }}</a></li>
+            <li><i class="fab fa-github icon"></i>GitHub: <a href="{{ github_url }}" target="_blank">{{ github_url }}</a></li>
+        </ul>
+    </div>
+</body>
+</html>
