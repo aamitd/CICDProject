@@ -65,13 +65,6 @@ pipeline {
                 }
             }
         }
-
-        stage('Email Notification') {
-            steps {
-                script {
-                mail(body: "${JOB_NAME}, build ${BUILD_NUMBER} Pytest completed.", subject: 'Pytest completed.', to: 'aamit.dahan@gmail.com')                }
-            }
-        }
     }
 
     post {
