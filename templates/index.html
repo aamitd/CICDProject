@@ -1,39 +1,26 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Amit Dahan Links</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #f3e8fd; /* Light purple background color */
-        }
-        .profile-img {
-            border-radius: 50%;
-            max-width: 150px;
-            margin: 20px auto;
-            display: block;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-        a {
-            text-decoration: none;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-        <img src="https://www.jenkins.io/images/logos/jenkinstein/256.png" alt="Me">
-    <h1>{{ name }}</h1>
-    <ul>
-        <li>YouTube: <a href="{{ youtube_url }}" target="_blank">{{ youtube_url }}</a></li>
-        <li>LinkedIn: <a href="{{ linkedin_url }}" target="_blank">{{ linkedin_url }}</a></li>
-        <li>Ynet: <a href="{{ ynet_url }}" target="_blank">{{ ynet_url }}</a></li>
-    </ul>
-</body>
-</html>
+from flask import Flask, render_template
+from pymongo import MongoClient
+
+app = Flask(__name__)
+
+# Connect to MongoDB
+client = MongoClient('mongodb://root:3yGWpZ7jeS@34.78.116.136:27017/')
+db = client['amitdata']
+
+
+@app.route('/')
+def index():
+    websites_data = db.websites.find_one({'name': 'Amit Dahan'})
+    name = websites_data['name']
+    facebook_url = websites_data['facebook_url']
+    linkedin_url = websites_data['linkedin_url']
+    instagram_url = websites_data['instagram_url']
+    github_url = websites_data['github_url']
+    return render_template('index.html', name=name, youtube_url=facebook_url, linkedin_url=linkedin_url,
+                           instagram_url=instagram_url, github_url=github_url)
+
+
+if __name__ == '__main__':
+    app.run(debug=True, host="0.0.0.0", port=2101)
+
+
