@@ -10,7 +10,7 @@ COPY . /app
 RUN pip install flask pymongo pytest
 
 # Run tests
-RUN pytest testapp.py
+RUN pytest 
 
 # Expose the port "2101"
 EXPOSE 2101
