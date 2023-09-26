@@ -10,7 +10,8 @@ COPY . /app
 # Install Flask and pymongo (and any other dependencies) using pip
 # RUN pip install flask pymongo pytest pytest-flask
 
-RUN pip install -r requirements.txt
+COPY requierments.txt /app/
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Run tests
 # RUN pytest testapp.py
