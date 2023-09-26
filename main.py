@@ -12,14 +12,13 @@ db = client['amitdata']
 def index():
     websites_data = db.websites.find_one({'name': 'Amit Dahan'})
     name = websites_data['name']
-    youtube_url = websites_data['youtube_url']
+    facebook_url = websites_data['facebook_url']
     linkedin_url = websites_data['linkedin_url']
-    ynet_url = websites_data['ynet_url']
-    return render_template('index.html', name=name, youtube_url=youtube_url, linkedin_url=linkedin_url,
-                            ynet_url=ynet_url)
+    instagram_url = websites_data['instagram_url']
+    github_url = websites_data['github_url']
+    return render_template('index.html', name=name, facebook_url=facebook_url, linkedin_url=linkedin_url,
+                            instagram_url=instagram_url, github_url=github_url)
 
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=2101)
-
-
