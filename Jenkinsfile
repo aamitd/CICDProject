@@ -69,8 +69,7 @@ pipeline {
         stage('Email Notification') {
             steps {
                 script {
-                    emailext subject: 'Pipeline Status: ${currentBuild.result}', body: 'The pipeline has completed. Status: ${currentBuild.result}', to: 'aamit.dahan@gmail.com'
-                }
+                mail(body: "${JOB_NAME}, build ${BUILD_NUMBER} Pytest completed.", subject: 'Pytest completed.', to: 'aamit.dahan@gmail.com')                }
             }
         }
     }
