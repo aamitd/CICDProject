@@ -39,6 +39,15 @@ pipeline {
             }
         }
 
+        stage('Run Pytest') {
+            steps {
+                script {
+                    echo 'Running Pytest...'
+                    sh 'pytest testapp.py'
+                }
+            }
+        }
+
         stage('Push Docker Image') {
             steps {
                 script {
