@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Amit Dahan Links</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Add Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -12,18 +12,25 @@
             padding: 0;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
+            max-width: 600px;
+            margin: 50px auto;
             padding: 20px;
-            background-color: #fff; /* White background color */
+            background-color: #ffffff;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow added */
         }
         .profile-img {
             border-radius: 50%;
             max-width: 150px;
             margin: 20px auto;
             display: block;
+            border: 4px solid #6c63ff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow added */
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #333;
         }
         ul {
             list-style-type: none;
@@ -32,25 +39,40 @@
         li {
             margin-bottom: 20px;
             font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         a {
             text-decoration: none;
-            color: #333;
+            color: #6c63ff;
             font-weight: bold;
             transition: color 0.3s;
         }
         a:hover {
-            color: #6c63ff; /* Light purple hover color */
+            color: #333; /* Color change on hover */
         }
         .icon {
-            margin-right: 10px;
             font-size: 24px;
+            margin-right: 10px;
+            transition: color 0.3s; /* Transition effect */
+        }
+        .icon:hover {
+            color: #6c63ff; /* Color change on hover */
+        }
+        .devops-img {
+            max-width: 45%; /* Reduced the width */
+            margin-top: 40px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Box shadow added */
         }
     </style>
 </head>
 <body>
     <div class="container">
-                <img class="profile-img" src="https://www.jenkins.io/images/logos/jenkinstein/256.png" alt="Me"> <!-- Replace "my_photo.jpg" with the actual file name of your photo -->
+        <img class="profile-img" src="https://www.jenkins.io/images/logos/jenkinstein/256.png" alt="Me">
         <h1>{{ name }}</h1>
         <ul>
             <li><i class="fab fa-facebook-square icon"></i>Facebook: <a href="{{ facebook_url }}" target="_blank">{{ facebook_url }}</a></li>
@@ -59,5 +81,6 @@
             <li><i class="fab fa-github icon"></i>GitHub: <a href="{{ github_url }}" target="_blank">{{ github_url }}</a></li>
         </ul>
     </div>
+    <img class="devops-img" src="https://www.turing.com/blog/wp-content/uploads/2022/08/6-Best-DevOps-Practices-to-Know-scaled.jpg" alt="DevOps">
 </body>
 </html>
