@@ -65,6 +65,14 @@ pipeline {
                 }
             }
         }
+
+        stage('Email Notification') {
+            steps {
+                script {
+                    emailext subject: 'Pipeline Status: ${currentBuild.result}', body: 'The pipeline has completed. Status: ${currentBuild.result}', to: 'aamit.dahan@gmail.com'
+                }
+            }
+        }
     }
 
     post {
